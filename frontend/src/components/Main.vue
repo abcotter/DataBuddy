@@ -49,10 +49,12 @@ export default {
 			var copyText = document.getElementById("data").innerText;
 			var input_temp = document.createElement("textarea");
 			input_temp.innerHTML = copyText;
+			document.body.appendChild(input_temp);
 			input_temp.select();
 			input_temp.setSelectionRange(0, 99999); /*For mobile devices*/
 			document.execCommand("copy");
 			alert(input_temp.value);
+			document.body.removeChild(input_temp);
 		},
 		createImage(file) {
 			var reader = new FileReader();
